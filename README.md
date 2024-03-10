@@ -61,6 +61,76 @@ $$ P(\text{soccer|like to play}) = 0.500 $$
 
 $$ P(\text{baseball|like to play}) = 0.200 $$
 
+## TF-IDF (Term Frequency - Inverse Document Frequency)
+- Calculation of how relevant word in series or corpus is to a text
+- Meaning increases proportionally to the number of times in the text a word appears but is compensated by the word frequency in the corpus
+
+$$ tf(t, d) = \frac{\text{count of term } t \text{ in document } d}{\text{number of words in document } d} $$     
+
+$$ idf(t) = \log_2 \left( \frac{N}{df(t)} \right) $$      
+
+$$ tf-idf(t, d) = tf(t, d) \cdot idf(t) $$
+
+- TF is the term frequency of a word in a document ( between 0 and 1 ),  IDf ( >= 0) 
+- N is the total number of documents in the corpus
+- DF is the document frequency of a word in the corpus (i.e., the number of documents that contain the word)
+
+ex)
+
+Doc1: The quick brown fox jumps over the lazy dog  
+
+Doc2: The lazy dog likes to sleep all day 
+
+Doc3: The brown fox prefers to eat cheese 
+
+Doc4: The red fox jumps over the brown fox
+
+Doc5: The brown dog chases the fox
+
+
+- Step 1 : Calculate the term frequency (TF)
+- 
+  
+TF = (Number of times word appears in the document) / (Total number of words in the document)
+
+Doc1: 1 / 9
+
+Doc2: 0 / 8
+
+Doc3: 1 / 7
+
+Doc4: 2 / 8
+
+Doc5: 1 / 6
+
+
+- Step 2 : Calculate the document frequency (DF)
+
+DF = 4 (Doc1, Doc3, Doc4 and Doc5)
+
+
+- Step 3: Calculate the inverse document frequency (IDF)
+
+IDF = log(5/4) = 0.2231
+
+
+- Step 4: Calculate the TF-IDF score
+
+TF-IDF = TF * IDF
+
+Doc1: 1/9 * 0.2231 = 0.0247
+
+Doc2: 0/8 * 0.2231 = 0
+
+Doc3: 1/7 * 0.2231 = 0.0318
+
+Doc4: 2/8 * 0.2231 = 0.0557
+
+Doc5: 1/6 * 0.2231 = 0.0372
+
+
+
+
 
 
 
